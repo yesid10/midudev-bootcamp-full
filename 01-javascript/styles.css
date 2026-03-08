@@ -412,6 +412,10 @@ article {
     box-shadow: none;
     padding: 0;
   }
+
+  .is-selected{
+    padding-top: 1rem;
+  }
 }
 
 .jobs-listings {
