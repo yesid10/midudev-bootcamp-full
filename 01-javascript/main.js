@@ -2,7 +2,7 @@
 
 import './fetchData.js'
 // import './filters.js'
-// import './apply-button.js'
+import './applyJobButton.js'
 // import './devjobs-avatar-element.js'
 
 // state.count++
