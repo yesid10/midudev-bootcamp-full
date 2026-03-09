@@ -1,25 +1,35 @@
 const container = document.querySelector(".jobs-listings");
+let allJobs = [];
 
-fetch("./data.json")
-    .then((res) => {
-        return res.json();
-    })
-    .then(jobs => {
-        jobs.forEach(job => {
-            const article = document.createElement("article");
-            article.className = "job-listing-card";
+const renderJobs = (jobs) => {
+    container.innerHTML = "";
 
-            article.dataset.modalidad = job.data.modalidad;
-            article.dataset.nivel = job.data.nivel;
-            article.dataset.technology = job.data.technology;
+    jobs.forEach(job => {
+        const article = document.createElement("article");
+        article.className = "job-listing-card";
 
-            article.innerHTML = article.innerHTML = `<div>
+        article.dataset.modalidad = job.data.modalidad;
+        article.dataset.nivel = job.data.nivel;
+        article.dataset.technology = job.data.technology;
+
+        article.innerHTML = article.innerHTML = `<div>
                     <h3>${job.titulo}</h3>
                     <small>${job.empresa} | ${job.ubicacion}</small>
                     <p>${job.descripcion}</p>
                 </div>
                 <button class="button-apply-job">Aplicar</button>`;
 
-            container.appendChild(article);
-        });
+        container.appendChild(article);
+    });
+}
+
+fetch("./data.json")
+    .then((res) => {
+        return res.json();
     })
+    .then(jobs => {
+        allJobs = jobs;
+        renderJobs(allJobs);
+    })
+
+export { renderJobs, allJobs };

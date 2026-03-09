@@ -1,6 +1,7 @@
 // import { state } from './config.js'
 
 import './fetchData.js'
+import './inputSearch.js'
 import './filters.js'
 import './applyJobButton.js'
 import './devjobs-avatar-element.js';
